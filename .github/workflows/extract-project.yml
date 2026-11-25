@@ -1,0 +1,38 @@
+name: Extrair projeto EstuLanches
+on:
+  push:
+    paths:
+      - '.github/workflows/extract-project.yml'
+permissions:
+  contents: write
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extrair e conferir os arquivos
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          archive_path = Path('EstuLanches-vgni.zip')
+          with ZipFile(archive_path) as archive:
+              for name in archive.namelist():
+                  path = Path(name)
+                  assert not path.is_absolute() and '..' not in path.parts
+                  assert '.git' not in path.parts
+              archive.extractall('.')
+              for name in archive.namelist():
+                  assert Path(name).read_bytes() == archive.read(name)
+              print(f'{len(archive.namelist())} arquivos extraídos e conferidos')
+          archive_path.unlink()
+          PY
+      - name: Verificar testes unitários
+        run: npm test
+      - name: Publicar as pastas do projeto
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Extrai o projeto EstuLanches e substitui o ZIP pelas pastas'
+          git push origin HEAD:main
