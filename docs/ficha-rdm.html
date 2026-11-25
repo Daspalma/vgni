@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Ficha RDM - EstuLanches 1.0.0</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 14mm 10mm 14mm; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 8pt; line-height: 1.32; color: #22332a; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+header { border-top: 5px solid #2b523e; padding-top: 10px; display: flex; justify-content: space-between; align-items: flex-start; }
+.kicker { font-size: 7.5pt; font-weight: bold; text-transform: uppercase; letter-spacing: 1.4px; color: #4e6b56; margin: 0 0 4px; }
+h1 { font-size: 20pt; letter-spacing: -.6px; line-height: 1.1; margin: 0 0 3px; color: #1c3527; }
+.subtitle { margin: 0; color: #58695d; font-size: 8.5pt; }
+.id { text-align: right; font-size: 7.5pt; color: #5f7064; min-width: 130px; }
+.id strong { display: block; font-size: 11pt; color: #2b523e; margin-bottom: 2px; }
+.summary { display: grid; grid-template-columns: 1fr 1fr 1fr; margin-top: 10px; background: #f0f4ef; border: 1px solid #d7e2d5; border-radius: 6px; }
+.summary div { padding: 7px 10px; }
+.summary div + div { border-left: 1px solid #d7e2d5; }
+.label { display: block; font-size: 6.8pt; text-transform: uppercase; letter-spacing: .6px; color: #5b6f60; margin-bottom: 2px; font-weight: bold; }
+.summary b { font-size: 8.5pt; color: #1c3527; }
+.status-box { margin: 8px 0; padding: 7px 10px; border-left: 4px solid #2b6341; background: #eaf3ea; color: #264b34; border-radius: 0 4px 4px 0; }
+.status-box strong { display: block; font-size: 8.5pt; margin-bottom: 2px; color: #1c4028; }
+.status-box p { margin: 0; font-size: 7.6pt; line-height: 1.28; }
+h2 { font-size: 8.8pt; margin: 8px 0 4px; padding-bottom: 3px; border-bottom: 1px solid #d7e2d5; display: flex; gap: 6px; color: #1e382a; text-transform: uppercase; letter-spacing: .4px; }
+h2 span { color: #4b6e55; font-size: 8pt; font-weight: bold; }
+p { margin: 3px 0; }
+table { border-collapse: collapse; width: 100%; font-size: 7.6pt; margin-top: 2px; }
+th { text-align: left; background: #f0f4ef; font-size: 7pt; color: #4b6e55; text-transform: uppercase; letter-spacing: .4px; }
+td, th { border-bottom: 1px solid #e1e8df; padding: 3.5px 6px; vertical-align: top; }
+.params td:first-child { width: 23%; font-weight: bold; color: #2b523e; }
+.tests td:first-child { width: 68%; }
+.ok { color: #1b5e32; font-weight: bold; }
+.partial { color: #855b00; font-weight: bold; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px; }
+.two h2 { margin-top: 6px; }
+.two p { font-size: 7.4pt; line-height: 1.26; }
+code { font-family: Consolas, monospace; font-size: 7.2pt; background: #eef2ec; padding: 1px 3px; border-radius: 2px; }
+.sign { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 10px; font-size: 7.2pt; color: #58695d; }
+.sign div { border-top: 1px solid #9fb0a2; padding-top: 3px; }
+footer { margin-top: 8px; display: flex; justify-content: space-between; color: #6d7e72; font-size: 6.8pt; border-top: 1px solid #d7e2d5; padding-top: 4px; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <p class="kicker">EstuLanches &middot; Controle de Mudan&ccedil;as e Implanta&ccedil;&atilde;o</p>
+    <h1>Ficha de RDM &middot; EstuLanches</h1>
+    <p class="subtitle">Registro Formal de Mudan&ccedil;a &middot; Cantina Escolar (Node.js, Express, PostgreSQL e Docker)</p>
+  </div>
+  <div class="id">
+    <strong>RDM-001 &middot; Rev 03</strong>
+    Sistema: <b>EstuLanches</b><br>
+    Vers&atilde;o: <b>1.0.0</b> (package.json)
+  </div>
+</header>
+
+<div class="summary">
+  <div><span class="label">Sistema e Vers&atilde;o</span><b>EstuLanches v1.0.0</b><br>Card&aacute;pio e pedidos da cantina</div>
+  <div><span class="label">Data e Hor&aacute;rio Real</span><b>23/11/2026 &agrave;s 12h15</b><br>Hor&aacute;rio de Bras&iacute;lia (UTC-3)</div>
+  <div><span class="label">Respons&aacute;vel T&eacute;cnico</span><b>[PREENCHER NOME]</b><br>Engenharia de Implanta&ccedil;&atilde;o</div>
+</div>
+
+<div class="status-box">
+  <strong>Status Final: PARCIAL / APROVADO COM RESTRI&Ccedil;&Atilde;O DE AMBIENTE LOCAL</strong>
+  <p>C&oacute;digo, banco de dados, regras de neg&oacute;cio e seguran&ccedil;a 100% validados. Testes unit&aacute;rios (33/33), testes de integra&ccedil;&atilde;o (6/6), teste de navegador (1/1) e teste e2e com reinicializa&ccedil;&atilde;o e persist&ecirc;ncia aprovados. Sintaxe Docker/Compose v2 validada com sucesso. No host atual, a execu&ccedil;&atilde;o de containers encontrou impedimento t&eacute;cnico (servi&ccedil;o <code>com.docker.service</code> parado sem eleva&ccedil;&atilde;o de administrador e WSL 2 sem distribui&ccedil;&otilde;es Linux instaladas).</p>
+</div>
+
+<h2><span>01</span> Objetivo e Escopo da Mudan&ccedil;a</h2>
+<p>Implementa&ccedil;&atilde;o e entrega do EstuLanches para gest&atilde;o de card&aacute;pio e pedidos da cantina escolar. Escopo contemplou conteineriza&ccedil;&atilde;o com Docker e Docker Compose, esquema e migra&ccedil;&otilde;es no PostgreSQL com integridade referencial, c&aacute;lculo de totais exclusivo no backend em centavos inteiros, transa&ccedil;&otilde;es at&ocirc;micas para pedidos, interface responsiva em portugu&ecirc;s e su&iacute;te automatizada de testes.</p>
+
+<h2><span>02</span> Componentes, Arquivos Alterados e Servi&ccedil;os</h2>
+<table class="params">
+<tr><td>Servi&ccedil;o App (Porta 3000)</td><td>Dockerfile baseado em <code>node:24-alpine</code>, <code>NODE_ENV=production</code>, usu&aacute;rio n&atilde;o-root <code>node</code>, <code>npm ci --omit=dev</code>, porta HTTP 3000 publicada no host e healthcheck ativo via <code>/api/health</code>.</td></tr>
+<tr><td>Servi&ccedil;o DB (Porta 5432 interna)</td><td>PostgreSQL 17 (<code>postgres:17-alpine</code>), isolado na rede interna do Compose (sem portas expostas no host), volume persistente <code>postgres_data</code>, healthcheck via <code>pg_isready</code> e credenciais via <code>.env</code>.</td></tr>
+<tr><td>Arquivos do Projeto</td><td><code>Dockerfile</code>, <code>docker-compose.yml</code>, <code>docker-compose.test.yml</code>, <code>.dockerignore</code>, <code>.env.example</code>, <code>package.json</code>, <code>src/</code> (app, domain, routes, services, db), <code>db/</code>, <code>tests/</code> e <code>docs/escalabilidade.md</code>.</td></tr>
+<tr><td>Integridade e Seguran&ccedil;a</td><td>SQL 100% parametrizado, Helmet ativado (CSP, x-powered-by desabilitado), bloqueio de produtos com <code>FOR SHARE</code>, rollback total em falhas e persist&ecirc;ncia hist&oacute;rica de nomes e pre&ccedil;os.</td></tr>
+</table>
+
+<h2><span>03</span> Resultados Reais dos Testes e Valida&ccedil;&otilde;es</h2>
+<table class="tests">
+<thead><tr><th>Verifica&ccedil;&atilde;o / Cen&aacute;rio de Teste</th><th>Resultado Real Registrado</th></tr></thead>
+<tbody>
+<tr><td>Valida&ccedil;&atilde;o de produtos, pre&ccedil;os em centavos, c&aacute;lculos e limites (<code>npm test</code>)</td><td class="ok">33 testes unit&aacute;rios aprovados (0 falhas)</td></tr>
+<tr><td>Testes com PostgreSQL real: cadastro, rollback at&ocirc;mico e integridade (<code>npm run test:integration</code>)</td><td class="ok">6 testes de integra&ccedil;&atilde;o aprovados (0 falhas)</td></tr>
+<tr><td>Fluxo completo na interface via Microsoft Edge em 5 resolu&ccedil;&otilde;es (<code>npm run test:browser</code>)</td><td class="ok">1 teste e2e de interface aprovado (0 falhas)</td></tr>
+<tr><td>Valida&ccedil;&atilde;o HTTP e persist&ecirc;ncia de dados ap&oacute;s reinicializa&ccedil;&atilde;o (<code>test:e2e --verify</code>)</td><td class="ok">Pedido #1 &middot; R$ 14,70 &middot; Persist&ecirc;ncia confirmada</td></tr>
+<tr><td>Valida&ccedil;&atilde;o de sintaxe e interpola&ccedil;&atilde;o do Docker Compose (<code>docker compose config</code>)</td><td class="ok">Sintaxe Compose v2 e depend&ecirc;ncias v&aacute;lidas</td></tr>
+<tr><td>Conex&atilde;o de banco e endpoints de sa&uacute;de (<code>GET /api/health</code>)</td><td class="ok">HTTP 200 &middot; status: ok</td></tr>
+</tbody>
+</table>
+
+<div class="two">
+  <div>
+    <h2><span>04</span> Valida&ccedil;&atilde;o de Containers e Pend&ecirc;ncias</h2>
+    <p><b>Evid&ecirc;ncia do Docker:</b> Arquivos de composi&ccedil;&atilde;o validados. O daemon do Docker Desktop no host Windows n&atilde;o p&ocirc;de ser inicializado devido &agrave; falta de privil&eacute;gios administrativos para acionar <code>com.docker.service</code> e &agrave; aus&ecirc;ncia de distros Linux no WSL 2. Nenhum log ou container foi forjado.<br>
+    <b>Pend&ecirc;ncia operacional:</b> Instalar distribui&ccedil;&atilde;o WSL 2 ou iniciar servi&ccedil;o Docker com perfil de administrador antes de executar <code>docker compose up -d</code> em produ&ccedil;&atilde;o.</p>
+  </div>
+  <div>
+    <h2><span>05</span> Plano de Revers&atilde;o e Seguran&ccedil;a</h2>
+    <p><b>Rollback de containers:</b> Interromper com <code>docker compose down</code> (preserva o volume <code>postgres_data</code>). Em caso de reinstala&ccedil;&atilde;o completa, aplicar backup do volume antes de qualquer a&ccedil;&atilde;o destrutiva.<br>
+    <b>Seguran&ccedil;a em produ&ccedil;&atilde;o:</b> N&atilde;o expor porta 5432 do banco; utilizar reverse proxy (Nginx/Traefik) com TLS/HTTPS v&aacute;lido; injetar credenciais via Secret Manager / vault; implementar rate-limiting e WAF.</p>
+  </div>
+</div>
+
+<div class="sign">
+  <div>Respons&aacute;vel t&eacute;cnico pela implanta&ccedil;&atilde;o: <b>[PREENCHER NOME]</b></div>
+  <div>Aprova&ccedil;&atilde;o formal de mudan&ccedil;a / Data: <b>Pendente de homologa&ccedil;&atilde;o</b></div>
+</div>
+
+<footer>
+  <span>EstuLanches 1.0.0 &middot; Documento oficial de RDM &middot; Gerado em 23/11/2026</span>
+  <span>P&aacute;gina 1 de 1</span>
+</footer>
+</body>
+</html>
